@@ -13,8 +13,8 @@ In this scenario, I did the following steps:
 4. Exported the .srt file from otter.ai and put it on the `input` folder with the name `what-is-linux.srt`
 5. Generate markdown file with the command `mage notes:generate what-is-linux` and the file is save to `output/what-is-linux/what-is-linux.md`
 
-![capture](https://github.com/marcos10soares/autonotes/blob/main/readme_images/capture.gif?raw=true)
-![generate](https://github.com/marcos10soares/autonotes/blob/main/readme_images/generate.gif?raw=true)
+![capture](https://raw.githubusercontent.com/marcos10soares/autonotes/master/readme_images/capture.gif)
+![generate](https://raw.githubusercontent.com/marcos10soares/autonotes/master/readme_images/generate.gif)
 
 ## Setup
 
