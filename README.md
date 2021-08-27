@@ -2,13 +2,29 @@
 
 Automation tool to autocapture screenshots and join them with a supplied .srt or .txt file and output a notes file in markdown.
 
+## Setup
+
+```bash
+git clone https://github.com/marcos10soares/autonotes.git
+cd autonotes
+go get -d ./...
+```
+
 ## Usage
 
-For the sake of simplicity, `mage` was used.
+For the sake of simplicity, `mage` was used, there is no need to install it.
 
-Show list of options:
+If you have mage installed just call `mage` othewise you can do `go run main.go` where you see mage being used.
+
+Just in case you want to install it: [How to Install mage](https://magefile.org/)
+
+Show list of options if you have `mage` installed:
 ```bash
 mage
+```
+otherwise do:
+```bash
+go run main.go
 ```
 
 outputs:
@@ -28,6 +44,10 @@ Tests screen capture on all screens and outputs the images to "output/screen_tes
 Use this to find the `index` of the screen you want to capture in case you have multiple monitors.
 ```bash
 mage screen:test
+```
+or
+```bash
+go run main.go screen:test
 ```
 
 ### screen capture
