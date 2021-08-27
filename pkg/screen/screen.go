@@ -55,8 +55,7 @@ func Test(filetype ImgfileType) error {
 			return err
 		}
 
-		cyan := color.New(color.FgCyan).SprintFunc()
-		fileName := fmt.Sprintf("%s/%s_%dx%d.%s", folder, cyan(i), bounds.Dx(), bounds.Dy(), filetype)
+		fileName := fmt.Sprintf("%s/%d_%dx%d.%s", folder, i, bounds.Dx(), bounds.Dy(), filetype)
 		file, err := os.Create(fileName)
 		if err != nil {
 			return err
@@ -69,6 +68,8 @@ func Test(filetype ImgfileType) error {
 			return err
 		}
 
+		cyan := color.New(color.FgCyan).SprintFunc()
+		fileName = fmt.Sprintf("%s/%s_%dx%d.%s", folder, cyan(i), bounds.Dx(), bounds.Dy(), filetype)
 		fmt.Printf("%s : %v \"%s\"\n", cyan(fmt.Sprintf("screen #%d", i)), bounds, fileName)
 	}
 
