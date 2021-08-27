@@ -16,6 +16,8 @@ In this scenario, I did the following steps:
 ![capture](https://raw.githubusercontent.com/marcos10soares/autonotes/master/readme_images/capture.gif)
 ![generate](https://raw.githubusercontent.com/marcos10soares/autonotes/master/readme_images/generate.gif)
 
+View output markdown file: [output file](https://github.com/marcos10soares/autonotes/blob/master/example_output/what-is-linux/what-is-linux.md)
+
 ## Setup
 
 ```bash
