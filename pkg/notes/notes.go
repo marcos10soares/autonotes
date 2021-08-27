@@ -10,9 +10,12 @@ import (
 
 // Generate generate md file from screenshot folder and srt file from otter.ai
 // assumes both file and folder have the same name (without extension)
-func Generate(fileAndFolderName string) error {
+func Generate(fileAndFolderName string, obsidianFormat bool) error {
 	notes, _ := astisub.OpenFile("input/" + fileAndFolderName + ".srt")
-	images := utils.GetListOfImagesInFolder("output/" + fileAndFolderName)
+	images, err := utils.GetListOfImagesInFolder("output/" + fileAndFolderName)
+	if err != nil {
+		return err
+	}
 	mdText := ""
 
 	for _, note := range notes.Items {
@@ -24,7 +27,7 @@ func Generate(fileAndFolderName string) error {
 
 			for i, char := range text {
 				if char == '.' {
-					newText = text[:i+1] + "\n\n" + text[i+1:]
+					newText = text[:i+1] + "\n" + text[i+1:]
 				}
 			}
 
@@ -37,18 +40,19 @@ func Generate(fileAndFolderName string) error {
 
 		for len(images) > 0 {
 			if images[0].StartAt < note.StartAt {
-				mdText += fmt.Sprintf("\n![%s](%s)\n", images[0].Name, images[0].Name)
+				// add image tag
+				mdText += genImageTag(images[0].Name, obsidianFormat)
+
 				images = images[1:]
 			} else {
 				break
 			}
 		}
-
 	}
 
 	// add remaining images
 	for len(images) > 0 {
-		mdText += fmt.Sprintf("\n![%s](%s)\n", images[0].Name, images[0].Name)
+		mdText += genImageTag(images[0].Name, obsidianFormat)
 		images = images[1:]
 	}
 
@@ -60,4 +64,12 @@ func Generate(fileAndFolderName string) error {
 	f.Close()
 
 	return err
+}
+
+func genImageTag(imgname string, obsidianFormat bool) string {
+	if obsidianFormat {
+		return fmt.Sprintf("\n![[%s]]\n", imgname)
+	}
+
+	return fmt.Sprintf("\n![%s](%s)\n", imgname, imgname)
 }

@@ -43,15 +43,15 @@ func (Screen) Capture(startDelay int, screenIndex int, captureInterval int, file
 	return nil
 }
 
-// Generate .md file from screenshot folder and .srt file from otter.ai - usage: mage generate <file_and_folder_name_must_have_the_same_name>
-func (Notes) Generate(fileAndFolderName string) error {
+// Generate .md file from screenshot folder and .srt file from otter.ai - usage: mage generate <file_and_folder_name_must_have_the_same_name> <obsidianFormat_true_false>
+func (Notes) Generate(fileAndFolderName string, obsidianFormat bool) error {
 	utils.PrintTitle("Generating Notes")
 
-	err := notes.Generate(fileAndFolderName)
+	err := notes.Generate(fileAndFolderName, obsidianFormat)
 	if err != nil {
 		return err
 	}
 	cyan := color.New(color.FgCyan).SprintFunc()
-	fmt.Println(cyan(fmt.Sprintf("Successfully generated file: output/%s.md", fileAndFolderName)))
+	fmt.Println(cyan(fmt.Sprintf("Successfully generated file: output/%s/%s.md", fileAndFolderName, fileAndFolderName)))
 	return nil
 }

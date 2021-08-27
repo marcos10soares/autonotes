@@ -88,18 +88,18 @@ This assumes that a folder with screenshots was already created (refer to **scre
 
 Both the folder and the `.srt` file should have the same name, example folder: `my-presentation-notes` and example .srt file: `my-presentation-notes.srt`.
 ```bash
-mage generate <file_and_folder_name_must_have_the_same_name>
+mage generate <file_and_folder_name_must_have_the_same_name> <obsidianFormat_true_false>
 ```
 
 example usage:
 ```bash
-mage generate my-presentation-notes
+mage generate my-presentation-notes true
 ```
 
 ## TODO
 
 - [ ] support txt files
 - [ ] integrate with google or aws speech-to-text solutions
-- [ ] output with obsidian image links format
+- [x] output with obsidian image links format
 - [ ] test on Windows
 - [ ] add name of file as title in md file

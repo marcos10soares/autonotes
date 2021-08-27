@@ -19,7 +19,7 @@ type ImageCapture struct {
 }
 
 // GetListOfImagesInFolder fetches a slice of image captures from folder
-func GetListOfImagesInFolder(folder string) []ImageCapture {
+func GetListOfImagesInFolder(folder string) ([]ImageCapture, error) {
 	var images []ImageCapture
 
 	// ignoreFiles := []string{
@@ -32,10 +32,19 @@ func GetListOfImagesInFolder(folder string) []ImageCapture {
 		if strings.HasPrefix(info.Name(), "capture") {
 			arr := strings.Split(info.Name(), "_")
 
-			min, _ := strconv.Atoi(arr[1])
-			sec, _ := strconv.Atoi(strings.Split(arr[2], ".")[0]) // remove extension
+			min, err := strconv.Atoi(arr[1])
+			if err != nil {
+				return err
+			}
+			sec, err := strconv.Atoi(arr[2])
+			if err != nil {
+				return err
+			}
 
-			duration, _ := time.ParseDuration(fmt.Sprintf("%dm%ds", min, sec))
+			duration, err := time.ParseDuration(fmt.Sprintf("%dm%ds", min, sec))
+			if err != nil {
+				return err
+			}
 
 			images = append(images, ImageCapture{
 				Name:    info.Name(),
@@ -45,7 +54,7 @@ func GetListOfImagesInFolder(folder string) []ImageCapture {
 		return nil
 	})
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
 	// sort
@@ -53,7 +62,7 @@ func GetListOfImagesInFolder(folder string) []ImageCapture {
 		return images[i].StartAt < images[j].StartAt
 	})
 
-	return images
+	return images, err
 }
 
 // StringSliceContains checks if a string slice contains a string

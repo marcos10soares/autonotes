@@ -96,7 +96,8 @@ func saveImage(img *image.RGBA, imgFileType ImgfileType, folder string, startTim
 	// create folder if does not exist
 	utils.CreateDirectoryIfNotExists(outputFolder)
 
-	fileName := fmt.Sprintf("%s/capture_%d_%d.%s", outputFolder, int(math.Round(elapsed.Minutes())), int(math.Round(elapsed.Seconds()))%60, imgFileType)
+	// add a timestamp for uniqueness
+	fileName := fmt.Sprintf("%s/capture_%d_%d_%s_%s.%s", outputFolder, int(math.Round(elapsed.Minutes())), int(math.Round(elapsed.Seconds()))%60, folder, fmt.Sprint(time.Now().Unix()), imgFileType)
 	file, err := os.Create(fileName)
 	if err != nil {
 		return err
