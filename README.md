@@ -2,12 +2,29 @@
 
 Automation tool to autocapture screenshots and join them with a supplied .srt or .txt file and output a notes file in markdown.
 
+**IMPORTANT:** This is a WIP, right now you I recommend using [otter.ai](https://otter.ai/) to generate an .srt file from the talk you are listening to and then feed it to this script. You should start recording with otter.ai and autonotes at the same time.
+
+## Example
+Both `example_input` and `example_output` folders represent a real use case scenario using the video: https://www.youtube.com/watch?v=YA-3NI_Lfns
+In this scenario, I did the following steps:
+1. I had a mobile on the desk with otter.ai open.
+2. Started `autonotes` with the command: `mage screen:capture 5 0 5000 jpeg what-is-linux` (it has a start delay of 5s)
+3. Started both the video on youtube and otter.ai recording at the same time as the `autonotes` start delay was ending.
+4. Exported the .srt file from otter.ai and put it on the `input` folder with the name `what-is-linux.srt`
+5. Generate markdown file with the command `mage notes:generate what-is-linux` and the file is save to `output/what-is-linux/what-is-linux.md`
+
+![capture](https://github.com/marcos10soares/autonotes/blob/main/readme_images/capture.gif?raw=true)
+![generate](https://github.com/marcos10soares/autonotes/blob/main/readme_images/generate.gif?raw=true)
+
 ## Setup
 
 ```bash
 git clone https://github.com/marcos10soares/autonotes.git
 cd autonotes
 go get -d ./...
+
+# create input folder where you will put your .txt or .srt files
+mkdir input
 ```
 
 ## Usage
