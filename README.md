@@ -14,14 +14,14 @@ This .srt file can be generated with a number of tools, I'm using otter.ai for c
 **Note:** This is a WIP, right now you I recommend using [otter.ai](https://otter.ai/) to generate an .srt file from the talk you are listening to and then feed it to this script. You should start recording with otter.ai and autonotes at the same time.
 
 ## Example
-Both `example_input` and `example_output` folders represent a real use case scenario using the video: https://www.youtube.com/watch?v=YA-3NI_Lfns
+Inside both `input` and `output` folders you can find a real use case scenario with the name `example-what-is-linux` that was generated from the video: https://www.youtube.com/watch?v=YA-3NI_Lfns
 In this scenario, I did the following steps:
 1. I had a mobile on the desk with otter.ai open.
-2. Started `autonotes` with the command: `mage screen:capture 5 0 5000 jpeg what-is-linux` (it has a start delay of 5s)
+2. Started `autonotes` with the command: `mage screen:capture 5 0 5000 jpeg example-what-is-linux` (it has a start delay of 5s)
 3. Started both the video on youtube and otter.ai recording at the same time as the `autonotes` start delay was ending.
-4. Exported the .srt file from otter.ai and put it on the `input` folder with the name `what-is-linux.srt`
+4. Exported the .srt file from otter.ai and put it on the `input` folder with the name `example-what-is-linux.srt`
 ![otter](https://raw.githubusercontent.com/marcos10soares/autonotes/master/readme_images/otter.png)
-5. Generate markdown file with the command `mage notes:generate what-is-linux` and the file is save to `output/what-is-linux/what-is-linux.md`
+5. Generate markdown file with the command `mage notes:generate example-what-is-linux` and the file is save to `output/example-what-is-linux/example-what-is-linux.md`
 
 ![capture](https://raw.githubusercontent.com/marcos10soares/autonotes/master/readme_images/capture.gif)
 ![generate](https://raw.githubusercontent.com/marcos10soares/autonotes/master/readme_images/generate.gif)
@@ -29,7 +29,7 @@ In this scenario, I did the following steps:
 6. Output:
 ![markdown](https://raw.githubusercontent.com/marcos10soares/autonotes/master/readme_images/markdown.png)
 
-View output markdown file: [output file](https://github.com/marcos10soares/autonotes/blob/master/example_output/what-is-linux/what-is-linux.md)
+View output markdown file: [output file](https://github.com/marcos10soares/autonotes/blob/master/output/example-what-is-linux/example-what-is-linux.md)
 
 ## Setup
 

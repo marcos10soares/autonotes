@@ -1,6 +1,9 @@
 input/*
 !input/README.md
+!input/example-what-is-linux.srt
 output/*
 !output/README.md
+!output/example-what-is-linux/
+output/example-what-is-linux/.DS_Store
 cmd/
 
