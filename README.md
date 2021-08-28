@@ -107,5 +107,5 @@ mage generate my-presentation-notes true
 - [ ] support txt files
 - [ ] integrate with google or aws speech-to-text solutions
 - [x] output with obsidian image links format
-- [ ] test on Windows
 - [ ] add name of file as title in md file
+- [ ] fetch srt from youtube
