@@ -3,9 +3,11 @@
 Automation tool to autocapture screenshots and join them with a supplied .srt or .txt file and output a notes file in markdown.
 
 **Problem?**
+
 Watching classes / presentations online and taking notes at the same time can be hard sometimes.
 
 **Solution**
+
 Tool that takes sceenshots from the classes / presentations (ideally in the right time) and joins them together with a later supplied .srt (or txt but not supported yet) file.
 This .srt file can be generated with a number of tools, I'm using otter.ai for converting Speech-to-Text. If you're using this with youtube videos, and the video already has subtitles, you can get that file instead of converting speech to text.
 
