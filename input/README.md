@@ -1,0 +1,1 @@
+Folder where the program searches for input files

@@ -2,6 +2,13 @@
 
 Automation tool to autocapture screenshots and join them with a supplied .srt or .txt file and output a notes file in markdown.
 
+**Problem?**
+Watching classes / presentations online and taking notes at the same time can be hard sometimes.
+
+**Solution**
+Tool that takes sceenshots from the classes / presentations (ideally in the right time) and joins them together with a later supplied .srt (or txt but not supported yet) file.
+This .srt file can be generated with a number of tools, I'm using otter.ai for converting Speech-to-Text. If you're using this with youtube videos, and the video already has subtitles, you can get that file instead of converting speech to text.
+
 **IMPORTANT:** This is a WIP, right now you I recommend using [otter.ai](https://otter.ai/) to generate an .srt file from the talk you are listening to and then feed it to this script. You should start recording with otter.ai and autonotes at the same time.
 
 ## Example
@@ -11,10 +18,14 @@ In this scenario, I did the following steps:
 2. Started `autonotes` with the command: `mage screen:capture 5 0 5000 jpeg what-is-linux` (it has a start delay of 5s)
 3. Started both the video on youtube and otter.ai recording at the same time as the `autonotes` start delay was ending.
 4. Exported the .srt file from otter.ai and put it on the `input` folder with the name `what-is-linux.srt`
+![otter](https://raw.githubusercontent.com/marcos10soares/autonotes/master/readme_images/otter.png)
 5. Generate markdown file with the command `mage notes:generate what-is-linux` and the file is save to `output/what-is-linux/what-is-linux.md`
 
 ![capture](https://raw.githubusercontent.com/marcos10soares/autonotes/master/readme_images/capture.gif)
 ![generate](https://raw.githubusercontent.com/marcos10soares/autonotes/master/readme_images/generate.gif)
+
+6. Output:
+![markdown](https://raw.githubusercontent.com/marcos10soares/autonotes/master/readme_images/markdown.png)
 
 View output markdown file: [output file](https://github.com/marcos10soares/autonotes/blob/master/example_output/what-is-linux/what-is-linux.md)
 
@@ -24,9 +35,6 @@ View output markdown file: [output file](https://github.com/marcos10soares/auton
 git clone https://github.com/marcos10soares/autonotes.git
 cd autonotes
 go get -d ./...
-
-# create input folder where you will put your .txt or .srt files
-mkdir input
 ```
 
 ## Usage
@@ -83,8 +91,6 @@ mage screen:capture 0 0 5000 jpeg my-presentation-notes
 
 ### generate notes
 This assumes that a folder with screenshots was already created (refer to **screen capture** above).
-
-**IMPORTANT:** you have to put the input file in a folder named `input` on the root of this project.
 
 Both the folder and the `.srt` file should have the same name, example folder: `my-presentation-notes` and example .srt file: `my-presentation-notes.srt`.
 ```bash

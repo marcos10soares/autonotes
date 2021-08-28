@@ -1,4 +1,5 @@
-//+build mage
+//go:build mage
+// +build mage
 
 // Mage is a make-like command runner.  See https://magefile.org for full docs.
 package main
@@ -20,9 +21,8 @@ type Notes mg.Namespace
 // Test screen capture all screens and saves them to a "screen_test" folder with the number of the screen
 func (Screen) Test() error {
 	utils.PrintTitle("Testing Screens")
-	screen.Test(screen.JPEG)
 
-	return nil
+	return screen.Test(screen.JPEG)
 }
 
 // Capture screen - usage: mage screen:capture <start_delay_seconds> <screen_index> <capture_interval_ms> <jpeg_or_png> <output_folder_name>
