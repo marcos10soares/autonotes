@@ -4,14 +4,14 @@ Automation tool to autocapture screenshots and join them with a supplied .srt or
 
 **Problem?**
 
-Watching classes / presentations online and taking notes at the same time can be hard sometimes.
+Watching classes / presentations online and taking notes at the same time can be hard sometimes. If they are pre-recorded you can spend a lot of time pausing and unpausing the video. So I wanted to automate the process of taking notes for later reference so I could also just focus on paying uninterrupted attention to the class/presentation.
 
 **Solution**
 
 Tool that takes sceenshots from the classes / presentations (ideally in the right time) and joins them together with a later supplied .srt (or txt but not supported yet) file.
 This .srt file can be generated with a number of tools, I'm using otter.ai for converting Speech-to-Text. If you're using this with youtube videos, and the video already has subtitles, you can get that file instead of converting speech to text.
 
-**IMPORTANT:** This is a WIP, right now you I recommend using [otter.ai](https://otter.ai/) to generate an .srt file from the talk you are listening to and then feed it to this script. You should start recording with otter.ai and autonotes at the same time.
+**Note:** This is a WIP, right now you I recommend using [otter.ai](https://otter.ai/) to generate an .srt file from the talk you are listening to and then feed it to this script. You should start recording with otter.ai and autonotes at the same time.
 
 ## Example
 Both `example_input` and `example_output` folders represent a real use case scenario using the video: https://www.youtube.com/watch?v=YA-3NI_Lfns
