@@ -39,7 +39,7 @@ func Generate(fileAndFolderName string, obsidianFormat bool) error {
 		}
 
 		for len(images) > 0 {
-			if images[0].StartAt < note.StartAt {
+			if images[0].StartAt <= note.StartAt {
 				// add image tag
 				mdText += genImageTag(images[0].Name, obsidianFormat)
 
